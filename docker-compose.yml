@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16.3
+    environment:
+      POSTGRES_USER: go-server-socket
+      POSTGRES_PASSWORD: go-server-socket
+      POSTGRES_DB: go-server-socket
+    ports:
+      - "5432:5432"
+    networks:
+      - go-server-socket-net
+networks:
+  go-server-socket-net:
+    name: go-server-socket-net
+    external: true
+volumes:
+  db:

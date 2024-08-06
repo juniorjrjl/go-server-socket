@@ -1,0 +1,3 @@
+go mod tidy
+go generate ./...
+go run cmd/wsrs/main.go

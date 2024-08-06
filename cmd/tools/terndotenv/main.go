@@ -1,15 +1,22 @@
 package main
 
 import (
+	"os"
 	"os/exec"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	if err := godotenv.Load(); err != nil {
-		panic(err)
+	dbHost := os.Getenv("DB_HOST")
+	dbPort := os.Getenv("DB_PORT")
+	dbDatabase := os.Getenv("DB_DATABASE")
+	dbUser := os.Getenv("DB_USER")
+	dbPassword := os.Getenv("DB_PASSWORD")
+	if dbHost == "" || dbPort == "" || dbDatabase == "" || dbUser == "" || dbPassword == "" {
+		panic("Uma ou mais variáveis de ambiente estão ausentes")
 	}
+	/*if err := godotenv.Load(); err != nil {
+		panic(err)
+	}*/
 
 	cmd := exec.Command(
 		"tern",

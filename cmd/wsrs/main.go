@@ -9,15 +9,14 @@ import (
 	"os/signal"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/joho/godotenv"
 	"github.com/juniorjrjl/go-server-socket/internal/api"
 	"github.com/juniorjrjl/go-server-socket/internal/store/pgstore"
 )
 
 func main() {
-	if err := godotenv.Load(); err != nil {
+	/*if err := godotenv.Load(); err != nil {
 		panic(err)
-	}
+	}*/
 
 	ctx := context.Background()
 

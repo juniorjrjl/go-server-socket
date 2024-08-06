@@ -1,4 +1,22 @@
 services:
+  app:
+    build:
+      context: .
+    command: bash start-dev.sh
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: go-server-socket
+      DB_USER: go-server-socket
+      DB_PASSWORD: go-server-socket
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/go-server-socket
+    depends_on:
+      - db
+    networks:
+      - go-server-socket-net
   db:
     image: postgres:16.3
     environment:
